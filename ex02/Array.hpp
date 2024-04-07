@@ -15,7 +15,7 @@ public:
 	Array & operator=(const Array & other);
 	T & operator[](unsigned int index);
 
-	unsigned int size(void);
+	unsigned int size(void) const;
 
 	class	InvalidIndexException : public std::exception
 	{
@@ -57,7 +57,7 @@ Array<T> & Array<T>::operator=(const Array& other){
 	if (array != NULL)
 		delete [] array;
 	sizeA = other.sizeA;
-	array = new T[sizeA]
+	array = new T[sizeA];
 	for (unsigned int i = 0; i < other.sizeA; i++)
 		array[i] = other.array[i];
 	return *this;
@@ -71,7 +71,7 @@ T& Array<T>::operator[](unsigned int index){
 }
 
 template<typename T>
-unsigned int Array<T>::size(void){
+unsigned int Array<T>::size(void) const{
 	return sizeA;
 }
 
