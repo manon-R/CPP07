@@ -32,12 +32,12 @@ private:
 
 template<typename T>
 Array<T>::Array(): sizeA(0){
-	array = new T[sizeA];
+	array = new T[0]();
 }
 
 template<typename T>
 Array<T>::Array(unsigned int n): sizeA(n){
-	array = new T[n];
+	array = new T[n]();
 }
 
 template<typename T>
@@ -57,7 +57,7 @@ Array<T> & Array<T>::operator=(const Array& other){
 	if (array != NULL)
 		delete [] array;
 	sizeA = other.sizeA;
-	array = new T[sizeA];
+	array = new T[sizeA]();
 	for (unsigned int i = 0; i < other.sizeA; i++)
 		array[i] = other.array[i];
 	return *this;
